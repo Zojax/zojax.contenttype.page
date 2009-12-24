@@ -1,0 +1,29 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:zcml="http://namespaces.zope.org/zcml">
+
+  <!-- activity -->
+  <class class=".page.Page"
+	 zcml:condition="installed zojax.activity">
+    <implements interface="zojax.activity.interfaces.IActivityAware" />
+  </class>
+
+  <!-- extensions -->
+  <class class=".page.Page"
+	 zcml:condition="installed zojax.extensions">
+    <implements interface="zojax.extensions.interfaces.IExtensible" />
+  </class>
+
+  <!-- attachments -->
+  <class class=".page.Page"
+	 zcml:condition="installed zojax.content.attachment">
+    <implements interface="zojax.content.attachment.interfaces.IAttachmentsAware" />
+  </class>
+
+  <!-- document view modes -->
+  <class class=".page.Page"
+	 zcml:condition="installed zojax.content.models.document">
+    <implements interface="zojax.content.models.document.interfaces.IDocumentModelsAware" />
+  </class>
+
+</configure>

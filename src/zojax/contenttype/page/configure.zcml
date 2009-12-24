@@ -1,0 +1,85 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:zojax="http://namespaces.zope.org/zojax"
+   xmlns:browser="http://namespaces.zope.org/browser"
+   i18n_domain="zojax.contenttypes">
+
+  <permission
+     id="zojax.contenttype.AddPage"
+     title="Add content page"
+     description="Allow add new pages to portal." />
+
+  <zojax:content
+     title="Web page"
+     name="contenttype.page"
+     schema=".interfaces.IPage"
+     class=".page.Page"
+     contenttype=".interfaces.IPageType"
+     ctclass="zojax.content.draft.contenttype.DraftedContentType"
+     type="zojax.content.type.interfaces.IActivePortalType
+	   zojax.content.space.interfaces.IContentSpaceType"
+     description="A web page in the site. Can contain rich text."
+     permission="zojax.contenttype.AddPage" />
+
+  <class class=".page.Page">
+    <implements interface="zojax.ownership.interfaces.IOwnerAware" />
+    <implements interface="zojax.content.type.interfaces.IShareableContent" />
+    <implements interface="zojax.content.type.interfaces.ISearchableContent" />
+
+    <require
+       permission="zope.View"
+       interface=".interfaces.IPage" />
+    
+    <require
+       permission="zojax.ModifyContent"
+       set_schema=".interfaces.IPage" />
+  </class>
+  
+  <adapter factory=".page.Sized" />
+  <adapter factory=".page.PageSearchableText" />
+  
+  <browser:icon
+     name="zmi_icon"
+     for=".interfaces.IPage"
+     file="page.png" />
+  
+  <browser:icon
+     name="zmi_icon"
+     for=".interfaces.IPageType"
+     file="page.png" />
+  
+  <zojax:pagelet
+     name="index.html"
+     for=".interfaces.IPage"
+     template="page.pt"
+     provides="zojax.content.type.interfaces.IContentView"
+     permission="zope.View" />
+
+  <!-- permissions -->
+  <zojax:permission
+     permission="zojax.contenttype.AddPage"
+     category="zojax.content.permissions.interfaces.IAddPermission" />
+  
+  <zojax:contentpermission
+     for="zojax.content.space.interfaces.IContentSpace"
+     contenttype="contenttype.page"
+     permission="zojax.contenttype.AddPage"
+     managepermission="zojax.ManageContentPermission"
+     class="zojax.content.permissions.permission.ContentPermission"
+     category="zojax.content.permissions.interfaces.IAddPermission" />
+  
+  <!-- draft -->
+  <zojax:draft
+     content="contenttype.page"
+     publish="zojax.contenttype.AddPage" />
+
+  <!-- event capabilities -->
+  <include file="capability.zcml" />
+
+  <!-- generations -->
+  <utility
+     name="zojax.contenttype.page"
+     provides="zope.app.generations.interfaces.ISchemaManager"
+     component=".generations.schemaManager" />
+
+</configure>

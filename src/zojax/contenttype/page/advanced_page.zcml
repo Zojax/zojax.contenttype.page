@@ -3,7 +3,7 @@
    xmlns:zojax="http://namespaces.zope.org/zojax"
    xmlns:browser="http://namespaces.zope.org/browser"
    xmlns:i18n="http://namespaces.zope.org/i18n"
-   i18n_domain="zojax.contenttype.page">
+   i18n_domain="zojax.contenttype.advanced_page">
 
   <i18n:registerTranslations directory="locales" />
 
@@ -13,18 +13,18 @@
      description="Allow add new pages to portal." />
 
   <zojax:content
-     title="Web page"
-     name="contenttype.page"
-     schema=".interfaces.IPage"
-     class=".page.Page"
-     contenttype=".interfaces.IPageType"
+     title="Advanced Web page"
+     name="contenttype.advanced_page"
+     schema=".interfaces.IAdvancedPage"
+     class=".advanced_page.AdvancedPage"
+     contenttype=".interfaces.IAdvancedPageType"
      ctclass="zojax.content.draft.contenttype.DraftedContentType"
      type="zojax.content.type.interfaces.IActivePortalType
 	   zojax.content.space.interfaces.IContentSpaceType"
      description="A web page in the site. Can contain rich text."
      permission="zojax.contenttype.AddPage" />
 
-  <class class=".page.Page">
+  <class class=".advanced_page.AdvancedPage">
     <implements interface="zojax.ownership.interfaces.IOwnerAware" />
     <implements interface="zojax.content.type.interfaces.IShareableContent" />
     <implements interface="zojax.content.type.interfaces.ISearchableContent" />
@@ -32,11 +32,11 @@
 
     <require
        permission="zope.View"
-       interface=".interfaces.IPage" />
+       interface=".interfaces.IAdvancedPage" />
     
     <require
        permission="zojax.ModifyContent"
-       set_schema=".interfaces.IPage" />
+       set_schema=".interfaces.IAdvancedPage" />
   </class>
   
   <adapter factory=".page.Sized" />
@@ -44,18 +44,18 @@
   
   <browser:icon
      name="zmi_icon"
-     for=".interfaces.IPage"
+     for=".interfaces.IAdvancedPage"
      file="page.png" />
   
   <browser:icon
      name="zmi_icon"
-     for=".interfaces.IPageType"
+     for=".interfaces.IAdvancedPageType"
      file="page.png" />
   
   <zojax:pagelet
      name="index.html"
-     for=".interfaces.IPage"
-     template="page.pt"
+     for=".interfaces.IAdvancedPage"
+     template="advanced_page.pt"
      provides="zojax.content.type.interfaces.IContentView"
      permission="zope.View" />
 
@@ -66,7 +66,7 @@
   
   <zojax:contentpermission
      for="zojax.content.space.interfaces.IContentSpace"
-     contenttype="contenttype.page"
+     contenttype="contenttype.advanced_page"
      permission="zojax.contenttype.AddPage"
      managepermission="zojax.ManageContentPermission"
      class="zojax.content.permissions.permission.ContentPermission"
@@ -74,18 +74,13 @@
   
   <!-- draft -->
   <zojax:draft
-     content="contenttype.page"
+     content="contenttype.advanced_page"
      publish="zojax.contenttype.AddPage" />
 
-  <!-- advanced page -->
-  <include file="advanced_page.zcml" />
-
-  <!-- event capabilities -->
-  <include file="capability.zcml" />
 
   <!-- generations -->
   <utility
-     name="zojax.contenttype.page"
+     name="zojax.contenttype.advanced_page"
      provides="zope.app.generations.interfaces.ISchemaManager"
      component=".generations.schemaManager" />
 

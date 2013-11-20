@@ -37,6 +37,42 @@ class IPage(interface.Interface):
         description = _(u'Page body text.'),
         required = True)
 
+class IPageTab(interface.Interface):
+
+    title = schema.TextLine(
+        title = _(u'Title'),
+        description = _(u'document title.'),
+        default = u'',
+        missing_value = u'',
+        required = True)
+
+
+    text = RichText(
+        title=_(u'Text'),
+        description=_(u'Blog post body text.'),
+        required=False)
+
+    position = schema.TextLine(
+        title=_(u'Position'),
+        required=False)
+
+
+class IAdvancedPage(IPage):
+
+    text = interface.Attribute("Object's Text")
+
+    tabs = schema.List(
+        title=_(u"Tabs"),
+        value_type=schema.Object(
+            title=_(u'tab'),
+            schema=IPageTab),
+        default=[],
+        required=False)
+
 
 class IPageType(interface.Interface):
+    """ page content type """
+
+
+class IAdvancedPageType(IPageType):
     """ page content type """

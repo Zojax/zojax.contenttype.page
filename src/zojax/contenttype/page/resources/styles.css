@@ -1,0 +1,53 @@
+/* zrt-cssregistry: */
+
+@media all { 
+
+/* edit form */
+.z-form-field .multi-widget .row {
+  background: #fff url(portlet-imagerotator/images/sprite.png) -145px 2px no-repeat;
+  border: 1px solid #D3D3D3;
+  margin: 0 0 3px 0!important;
+  padding: 3px 3px 3px 17px;
+}
+.z-form-field .closed,
+.z-form-field .open {
+  background: url(portlet-imagerotator/images/sprite.png) 730px -18px no-repeat;
+}
+.z-form-field .open {
+  background-position: 747px -34px;
+}
+.z-form-field .object-widget {
+  clear: both;
+  overflow: hidden;
+}
+.z-form-field .multi-widget-input .label,
+.z-form-field .multi-widget-input .widget {
+  margin: 3px 0;
+}
+.z-form-field .multi-widget-input .label {
+  float: left;
+  width: 10%;
+  clear: both;
+}
+.z-form-field .multi-widget-input .widget {
+  width: 90%;
+  float: right;
+}
+.z-form-field .multi-widget-input .option .label {
+  float: none;
+}
+.z-form-field .multi-widget .z-form-field {
+  margin-top: 0;
+}
+.z-form-field .imagefield-field {
+  margin-top: 4px;
+}
+.z-form .z-form-field .object-widget input,
+.wizard .z-form-field .x-html-editor-wrap {
+  margin-left: 0px!important;
+ }
+.wizard .z-form-field .x-html-editor-wrap {
+  width: 598px!important;
+}
+
+}

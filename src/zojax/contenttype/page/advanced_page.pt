@@ -1,11 +1,23 @@
 <tal:block i18n:domain="zojax.contenttype.page" tal:define="text context/text">
-  <p tal:condition="not:text" class="discreet" i18n:translate="">
-    This item does not have any body text, click the edit tab to change it.
-  </p>
+  <!--<p  class="discreet" i18n:translate="">-->
+    <!--This item does not have any body text, click the edit tab to change it.-->
+  <!--</p>-->
 
-    <h1>Advanced Page</h1>
-      
-  <div tal:condition="text" tal:content="structure text">
-    Body Text
-  </div>
+
+<div class="row">
+    <div class="tabs-pad">
+      <ul id="tab_preview" class="nav nav-tabs">
+          <li tal:repeat="tab context/tabs" tal:attributes="class python:tab.position=='0' and 'active' or ''">
+              <a tal:attributes="href string:#selection${tab/position}" tal:content="tab/title" ></a>
+          </li>
+      </ul>
+    </div>
+
+    <div class="tab-content">
+      <div tal:repeat="tab context/tabs"
+           tal:content="tab/text/cooked"
+           tal:attributes="id string:selection${tab/position}; class python:tab.position=='0' and 'tab-pane active' or 'tab-pane'"></div>
+    </div>
+</div>
+
 </tal:block>

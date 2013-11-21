@@ -38,7 +38,12 @@
        permission="zojax.ModifyContent"
        set_schema=".interfaces.IAdvancedPage" />
   </class>
-  
+
+
+  <class class=".advanced_page.PageTab">
+    <allow interface=".interfaces.IPageTab" />
+  </class>
+
   <adapter factory=".page.Sized" />
   <adapter factory=".page.PageSearchableText" />
   
@@ -83,5 +88,28 @@
      name="zojax.contenttype.advanced_page"
      provides="zope.app.generations.interfaces.ISchemaManager"
      component=".generations.schemaManager" />
+
+
+  <!-- styles -->
+  <zojax:resourceinclude
+     name="zojax-page.css"
+     library="zojax" type="stylesheet" file="resources/styles.css" filetype="zrt" />
+
+  <!--&lt;!&ndash; styles &ndash;&gt;-->
+  <!--<zojax:resourceinclude-->
+     <!--name="zojax-bootstrap-page.css"-->
+     <!--library="zojax" type="stylesheet" file="resources/bootstrap.css" filetype="zrt" />-->
+
+  <!--<zojax:resourceinclude-->
+     <!--name="tabs_dragdrop.js"-->
+     <!--library="zojax" type="javascript"-->
+     <!--require="jquery jquery-plugins"-->
+     <!--file="resources/dragdrop.js"/>-->
+
+  <zojax:resourceinclude
+     name="advanced_page_tabs.js"
+     library="zojax" type="javascript"
+     require="jquery jquery-plugins"
+     file="resources/tabs.js"/>
 
 </configure>

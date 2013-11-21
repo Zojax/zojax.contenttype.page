@@ -1,6 +1,79 @@
 /* zrt-cssregistry: */
 
-@media all { 
+@media all {
+    .tabs-pad {
+        float: left;
+        padding-right: 50px;
+        width: 240px;
+    }
+
+
+.nav-tabs > li {
+    display: block;
+    position: relative;
+    margin: 0px;
+
+}
+
+.nav-tabs > li > a {
+    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-top-colors: none !important;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-image: none !important;
+    border-right: medium none !important;
+    box-shadow: none;
+    color: #4D4D4D;
+    display: block;
+    font-family: 'Roboto',sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    padding: 9px 30px 10px 0;
+    text-align: left;
+    white-space: pre-line;
+}
+
+.nav-tabs > li > a:hover, .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .nav-tabs > li > a:focus {
+    background: none repeat scroll 0 0 #EB5F53;
+    border-color: rgba(0, 0, 0, 0) -moz-use-text-color -moz-use-text-color !important;
+    border-right: medium none !important;
+    box-shadow: none;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 9px 30px 10px 20px;
+    border-radius: 4px 0 0 4px;
+    border-image: none;
+    cursor: default;
+}
+
+.nav-tabs > li:hover:after, .nav-tabs > li.active:after, .nav-tabs > li.active:hover:after, .nav-tabs > li.active:focus:after, .nav-tabs > li:focus {
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EB5F53;
+    border-style: solid;
+    border-width: 20px 0 20px 20px;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    width: 0;
+}
+
+.tab-content {
+    margin: -6px 0 0;
+    padding-top: 0 !important;
+    text-align: left;
+    width: 400px;
+}
+.tab-content > div {
+    display: none;
+}
+div.active {
+    display: block;
+}
+
+
 
 /* edit form */
 .z-form-field .multi-widget .row {
@@ -49,5 +122,10 @@
 .wizard .z-form-field .x-html-editor-wrap {
   width: 598px!important;
 }
+
+
+
+
+
 
 }

@@ -46,7 +46,6 @@ class IPageTab(interface.Interface):
         missing_value = u'',
         required = True)
 
-
     text = RichText(
         title=_(u'Text'),
         description=_(u'Blog post body text.'),

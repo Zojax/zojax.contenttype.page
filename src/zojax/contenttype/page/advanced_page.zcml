@@ -39,24 +39,23 @@
        set_schema=".interfaces.IAdvancedPage" />
   </class>
 
-
   <class class=".advanced_page.PageTab">
     <allow interface=".interfaces.IPageTab" />
   </class>
 
   <adapter factory=".page.Sized" />
   <adapter factory=".page.PageSearchableText" />
-  
+
   <browser:icon
      name="zmi_icon"
      for=".interfaces.IAdvancedPage"
      file="page.png" />
-  
+
   <browser:icon
      name="zmi_icon"
      for=".interfaces.IAdvancedPageType"
      file="page.png" />
-  
+
   <zojax:pagelet
      name="index.html"
      for=".interfaces.IAdvancedPage"
@@ -64,11 +63,13 @@
      provides="zojax.content.type.interfaces.IContentView"
      permission="zope.View" />
 
+     <!--class=".advanced_page.AdvancedPageView"-->
+
   <!-- permissions -->
   <zojax:permission
      permission="zojax.contenttype.AddPage"
      category="zojax.content.permissions.interfaces.IAddPermission" />
-  
+
   <zojax:contentpermission
      for="zojax.content.space.interfaces.IContentSpace"
      contenttype="contenttype.advanced_page"
@@ -76,12 +77,11 @@
      managepermission="zojax.ManageContentPermission"
      class="zojax.content.permissions.permission.ContentPermission"
      category="zojax.content.permissions.interfaces.IAddPermission" />
-  
+
   <!-- draft -->
   <zojax:draft
      content="contenttype.advanced_page"
      publish="zojax.contenttype.AddPage" />
-
 
   <!-- generations -->
   <utility
@@ -89,26 +89,20 @@
      provides="zope.app.generations.interfaces.ISchemaManager"
      component=".generations.schemaManager" />
 
-
   <!-- styles -->
   <zojax:resourceinclude
      name="zojax-page.css"
      library="zojax" type="stylesheet" file="resources/styles.css" filetype="zrt" />
 
-  <!--&lt;!&ndash; styles &ndash;&gt;-->
-  <!--<zojax:resourceinclude-->
-     <!--name="zojax-bootstrap-page.css"-->
-     <!--library="zojax" type="stylesheet" file="resources/bootstrap.css" filetype="zrt" />-->
-
-  <!--<zojax:resourceinclude-->
-     <!--name="tabs_dragdrop.js"-->
-     <!--library="zojax" type="javascript"-->
-     <!--require="jquery jquery-plugins"-->
-     <!--file="resources/dragdrop.js"/>-->
+  <zojax:resourceinclude
+     name="tabs_dragdrop.js"
+     library="zojax" type="javascript"
+     require="jquery jquery-plugins"
+     file="resources/dragdrop.js"/>
 
   <zojax:resourceinclude
      name="advanced_page_tabs.js"
-     library="zojax" type="javascript"
+     library="advanced-page-js" type="javascript"
      require="jquery jquery-plugins"
      file="resources/tabs.js"/>
 

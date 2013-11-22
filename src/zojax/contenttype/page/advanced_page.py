@@ -16,6 +16,7 @@
 $Id$
 """
 from z3c.form.object import registerFactoryAdapter
+from zojax.resourcepackage.library import include
 from zope import interface
 from zojax.richtext.field import RichTextProperty
 from zope.schema.fieldproperty import FieldProperty
@@ -68,3 +69,12 @@ class PageTab(object):
     position = FieldProperty(IPageTab['position'])
 
 registerFactoryAdapter(IPageTab, PageTab)
+
+
+class AdvancedPageView(object):
+    """
+    Advanced post view
+    """
+    def __init__(self, *args, **kw):
+        include('advanced-page-js')
+        super(AdvancedPageView, self).__init__(*args, **kw)

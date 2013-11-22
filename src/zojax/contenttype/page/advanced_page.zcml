@@ -60,6 +60,7 @@
      name="index.html"
      for=".interfaces.IAdvancedPage"
      template="advanced_page.pt"
+     class=".advanced_page.AdvancedPageView"
      provides="zojax.content.type.interfaces.IContentView"
      permission="zope.View" />
 

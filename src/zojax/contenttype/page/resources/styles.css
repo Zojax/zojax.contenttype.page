@@ -2,15 +2,18 @@
 
 @media all {
 
+.aero #portal-column-content {
+    float: none;
+    width: 100%;
+}
+
 .tabs-pad {
     float: left;
     padding-right: 20px;
     width: 200px;
+    display: table;
 }
 
-.tabs-row {
-    width: 800px;
-}
 .nav-tabs > li {
     display: block;
     position: relative;
@@ -22,8 +25,9 @@
     margin: -6px 0 0;
     padding-top: 0 !important;
     text-align: left;
-    float: right;
-    width: 560px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: table;
 }
 .tab-content > div {
     display: none;
@@ -42,7 +46,6 @@
 
 .nav-tabs > li > a:hover, .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .nav-tabs > li > a:focus {
     background: none repeat scroll 0 0 #EB5F53;
-    /*border-color: rgba(0, 0, 0, 0) -moz-use-text-color -moz-use-text-color !important;*/
     border-right: medium none !important;
     box-shadow: none;
     color: #FFFFFF;
@@ -65,16 +68,9 @@
     width: 0;
 }
 
-
 div.active {
     display: block;
 }
-
-
-
-
-
-
 
 /* edit form */
 .z-form-field .multi-widget .row {

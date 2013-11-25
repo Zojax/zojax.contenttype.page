@@ -87,10 +87,18 @@
   <zojax:pagelet
      name="context.html"
      for=".interfaces.IAdvancedPage"
-     class=".advanced_page.AdvancedPageForm"
+     class=".advanced_page.AdvancedPageEditForm"
      allowed_attributes="actions upperContainer"
      provides="zojax.wizard.interfaces.IWizardWithTabs"
      permission="zope.View" />
+
+  <zojax:pagelet
+     name="content"
+     type="wizard.step"
+     for=".interfaces.IAdvancedPage
+	  zojax.content.draft.browser.interfaces.IAddContentWizard"
+     class=".advanced_page.AdvancedPageAddForm"
+     weight="100" />
 
   <!-- generations -->
   <utility

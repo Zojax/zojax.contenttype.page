@@ -16,7 +16,10 @@
 $Id$
 """
 from z3c.form.object import registerFactoryAdapter
-from zojax.content.forms.interfaces import IContentStep, IEditContentWizard
+from zojax.content.draft.browser.adding import AddContentWizard
+from zojax.content.draft.browser.interfaces import IAddContentWizard
+from zojax.content.forms.content import ContentStep
+from zojax.content.forms.interfaces import IEditContentWizard
 from zojax.content.forms.wizardedit import EditContentWizard
 from zojax.resourcepackage.library import include
 from zojax.wizard import WizardStepForm
@@ -84,9 +87,17 @@ class AdvancedPageView(object):
         super(AdvancedPageView, self).__init__(*args, **kw)
 
 
-class AdvancedPageForm(EditContentWizard):
+class AdvancedPageEditForm(EditContentWizard):
     interface.implements(ISaveable, IEditContentWizard)
 
     def __init__(self, *args, **kw):
         include('advanced-page-js')
-        super(AdvancedPageForm, self).__init__(*args, **kw)
+        super(AdvancedPageEditForm, self).__init__(*args, **kw)
+
+
+class AdvancedPageAddForm(ContentStep):
+    interface.implements(ISaveable)
+
+    def __init__(self, *args, **kw):
+        include('advanced-page-js')
+        super(AdvancedPageAddForm, self).__init__(*args, **kw)

@@ -71,7 +71,8 @@
      managepermission="zojax.ManageContentPermission"
      class="zojax.content.permissions.permission.ContentPermission"
      category="zojax.content.permissions.interfaces.IAddPermission" />
-  
+
+
   <!-- draft -->
   <zojax:draft
      content="contenttype.page"

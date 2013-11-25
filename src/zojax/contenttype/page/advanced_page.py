@@ -16,7 +16,11 @@
 $Id$
 """
 from z3c.form.object import registerFactoryAdapter
+from zojax.content.forms.interfaces import IContentStep, IEditContentWizard
+from zojax.content.forms.wizardedit import EditContentWizard
 from zojax.resourcepackage.library import include
+from zojax.wizard import WizardStepForm
+from zojax.wizard.interfaces import ISaveable
 from zope import interface
 from zojax.richtext.field import RichTextProperty
 from zope.schema.fieldproperty import FieldProperty
@@ -78,3 +82,11 @@ class AdvancedPageView(object):
     def __init__(self, *args, **kw):
         include('advanced-page-js')
         super(AdvancedPageView, self).__init__(*args, **kw)
+
+
+class AdvancedPageForm(EditContentWizard):
+    interface.implements(ISaveable, IEditContentWizard)
+
+    def __init__(self, *args, **kw):
+        include('advanced-page-js')
+        super(AdvancedPageForm, self).__init__(*args, **kw)

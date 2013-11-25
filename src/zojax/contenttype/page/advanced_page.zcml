@@ -84,6 +84,14 @@
      content="contenttype.advanced_page"
      publish="zojax.contenttype.AddPage" />
 
+  <zojax:pagelet
+     name="context.html"
+     for=".interfaces.IAdvancedPage"
+     class=".advanced_page.AdvancedPageForm"
+     allowed_attributes="actions upperContainer"
+     provides="zojax.wizard.interfaces.IWizardWithTabs"
+     permission="zope.View" />
+
   <!-- generations -->
   <utility
      name="zojax.contenttype.advanced_page"
@@ -97,7 +105,7 @@
 
   <zojax:resourceinclude
      name="tabs_dragdrop.js"
-     library="zojax" type="javascript"
+     library="advanced-page-js" type="javascript"
      require="jquery jquery-plugins"
      file="resources/dragdrop.js"/>
 

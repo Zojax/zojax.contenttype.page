@@ -83,8 +83,17 @@ div.active {
 .z-form-field .open {
   background: url(portlet-imagerotator/images/sprite.png) 730px -18px no-repeat;
 }
+
+.error.z-form-field .closed,
+.error.z-form-field .open{
+  background: url(portlet-imagerotator/images/sprite.png) 695px -18px no-repeat;
+}
+
 .z-form-field .open {
   background-position: 747px -34px;
+}
+.error.z-form-field .open {
+  background-position: 712px -34px;
 }
 .z-form-field .object-widget {
   clear: both;

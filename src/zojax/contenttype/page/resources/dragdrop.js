@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    var NO_TOGGLE = false;
     // Sort
     $(".z-form-field .multi-widget").children().each(function(index) {
         if ($(this).attr('id') == 'form-widgets-tabs-'+index+'-row') {
@@ -11,6 +12,7 @@ $(document).ready(function() {
         connectWith: ".z-form-field .multi-widget",
         axis: "y",
         update: function(event, ui) {
+
             parent = ui.item.parent();
             parent.children().each(function(index) {
                 var Id = $(this).attr('id');
@@ -18,6 +20,9 @@ $(document).ready(function() {
                 Id = Id.replace('-row', '');
                 $('#form-widgets-tabs-'+Id+'-widgets-position').val(index);
             });
+        },
+        start : function(){
+            NO_TOGGLE = true;
         }
     }).disableSelection();
 
@@ -27,17 +32,21 @@ $(document).ready(function() {
     $(".z-form-field .multi-widget .row > div.label").addClass("closed");
 
     var toggleItem = function() {
+        if (NO_TOGGLE) {
+            NO_TOGGLE = false;
+            return false;
+        }
         var $glideElement = $(this);
-	    if ($glideElement.next().is(":hidden")) {
+	    if ($glideElement.siblings('.widget').is(":hidden")) {
 		    // show it
 		    $glideElement.removeClass("closed");
 		    $glideElement.addClass("open");
-		    $glideElement.next().slideDown();
+		    $glideElement.siblings('.widget').slideDown();
 	    } else {
 		    // hidde it
 		    $glideElement.removeClass("open");
 		    $glideElement.addClass("closed");
-		    $glideElement.next().slideUp();
+		    $glideElement.siblings('.widget').slideUp();
 	    }
 	    return false;
     }

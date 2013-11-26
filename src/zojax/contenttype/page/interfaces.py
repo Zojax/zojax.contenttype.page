@@ -66,7 +66,7 @@ class IAdvancedPage(IPage):
             title=_(u'tab'),
             schema=IPageTab),
         default=[],
-        required=False)
+        required=True)
 
 
 class IPageType(interface.Interface):

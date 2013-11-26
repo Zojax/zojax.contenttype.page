@@ -109,7 +109,7 @@
   <!-- styles -->
   <zojax:resourceinclude
      name="zojax-page.css"
-     library="zojax" type="stylesheet" file="resources/styles.css" filetype="zrt" />
+     library="advanced-page-js" type="stylesheet" file="resources/styles.css" filetype="zrt" />
 
   <zojax:resourceinclude
      name="tabs_dragdrop.js"

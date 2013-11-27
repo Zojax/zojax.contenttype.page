@@ -41,7 +41,7 @@
     white-space: pre-line;
 }
 .nav-tabs > li > a:hover, .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .nav-tabs > li > a:focus {
-    background: none repeat scroll 0 0 #EB5F53;
+    background: none repeat scroll 0 0 #EB5F53 !important;
     border-right: medium none !important;
     box-shadow: none;
     color: #FFFFFF;
@@ -52,7 +52,7 @@
     cursor: default;
 }
 .nav-tabs > li:hover:after, .nav-tabs > li.active:after, .nav-tabs > li.active:hover:after, .nav-tabs > li.active:focus:after, .nav-tabs > li:focus {
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EB5F53;
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EB5F53 !important;
     border-style: solid;
     border-width: 20px 0 20px 20px;
     content: "";

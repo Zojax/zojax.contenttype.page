@@ -6,21 +6,18 @@
     float: none !important;
     width: 100% !important;
 }
-
 .tabs-pad {
     float: left;
     padding-right: 20px;
     width: 200px;
     display: table;
 }
-
 .nav-tabs > li {
     display: block;
     position: relative;
     margin: 0px;
 
 }
-
 .tab-content {
     margin: -6px 0 0;
     padding-top: 0 !important;
@@ -32,7 +29,6 @@
 .tab-content > div {
     display: none;
 }
-
 .nav-tabs > li > a {
     display: block;
     font-family: 'Roboto',sans-serif;
@@ -43,7 +39,6 @@
     text-align: left;
     white-space: pre-line;
 }
-
 .nav-tabs > li > a:hover, .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .nav-tabs > li > a:focus {
     background: none repeat scroll 0 0 #EB5F53;
     border-right: medium none !important;
@@ -55,7 +50,6 @@
     border-image: none;
     cursor: default;
 }
-
 .nav-tabs > li:hover:after, .nav-tabs > li.active:after, .nav-tabs > li.active:hover:after, .nav-tabs > li.active:focus:after, .nav-tabs > li:focus {
     border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EB5F53;
     border-style: solid;
@@ -67,7 +61,6 @@
     top: 0;
     width: 0;
 }
-
 div.active {
     display: block;
 }
@@ -83,12 +76,10 @@ div.active {
 .z-form-field .open {
   background: url(portlet-imagerotator/images/sprite.png) 730px -18px no-repeat;
 }
-
 .error.z-form-field .closed,
 .error.z-form-field .open{
   background: url(portlet-imagerotator/images/sprite.png) 695px -18px no-repeat;
 }
-
 .z-form-field .open {
   background-position: 747px -34px;
 }
@@ -128,5 +119,7 @@ div.active {
 .wizard .z-form-field .x-html-editor-wrap {
   width: 598px!important;
 }
-
+.z-form-field .error {
+    position: relative !important;
+}
 }

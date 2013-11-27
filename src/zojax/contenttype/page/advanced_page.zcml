@@ -13,7 +13,7 @@
      description="Allow add new pages to portal." />
 
   <zojax:content
-     title="Advanced Web page"
+     title="Advanced Web Page"
      name="contenttype.advanced_page"
      schema=".interfaces.IAdvancedPage"
      class=".advanced_page.AdvancedPage"

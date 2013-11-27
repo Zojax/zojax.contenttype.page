@@ -18,33 +18,34 @@ $Id$
 from zope import schema, interface
 from zojax.richtext.field import RichText
 from zojax.contenttypes.interfaces import _
+from zope.schema import ValidationError
+from zope.schema.interfaces import WrongContainedType
 
 
 class IPage(interface.Interface):
-
     title = schema.TextLine(
-        title = _(u'Title'),
-        description = _(u'Page title.'),
-        required = True)
+        title=_(u'Title'),
+        description=_(u'Page title.'),
+        required=True)
 
     description = schema.Text(
-        title = _(u'Description'),
-        description = _(u'A short summary of the content.'),
-        required = False)
+        title=_(u'Description'),
+        description=_(u'A short summary of the content.'),
+        required=False)
 
     text = RichText(
-        title = _(u'Body'),
-        description = _(u'Page body text.'),
-        required = True)
+        title=_(u'Body'),
+        description=_(u'Page body text.'),
+        required=True)
+
 
 class IPageTab(interface.Interface):
-
     title = schema.TextLine(
-        title = _(u'Title'),
-        description = _(u'document title.'),
-        default = u'',
-        missing_value = u'',
-        required = True)
+        title=_(u'Title'),
+        description=_(u'document title.'),
+        default=u'',
+        missing_value=u'',
+        required=True)
 
     text = RichText(
         title=_(u'Text'),
@@ -56,21 +57,44 @@ class IPageTab(interface.Interface):
         required=False)
 
 
-class IAdvancedPage(IPage):
+class WrongTabsError(ValidationError):
+    __doc__ = _("""Some have has an errors""")
 
+
+class WrongTabError(ValidationError):
+    __doc__ = _("""This tab has an error""")
+
+
+class TabsField(schema.List):
+    def _validate(self, value):
+        try:
+            super(TabsField, self)._validate(value)
+        except WrongContainedType:
+            raise WrongTabsError()
+
+
+class TabSchema(schema.Object):
+    def _validate(self, value):
+        try:
+            super(TabSchema, self)._validate(value)
+        except WrongContainedType:
+            raise WrongTabError()
+
+
+class IAdvancedPage(IPage):
     text = interface.Attribute("Object's Text")
 
-    tabs = schema.List(
+    tabs = TabsField(
         title=_(u"Tabs"),
-        value_type=schema.Object(
-            title=_(u'tab'),
+        value_type=TabSchema(
+            title=_(u'Tab'),
             schema=IPageTab),
         default=[],
         required=True)
 
 
 class IPageType(interface.Interface):
-    """ page content type """
+    """ page type """
 
 
 class IAdvancedPageType(IPageType):

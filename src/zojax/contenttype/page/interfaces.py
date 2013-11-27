@@ -58,7 +58,7 @@ class IPageTab(interface.Interface):
 
 
 class WrongTabsError(ValidationError):
-    __doc__ = _("""Some have has an errors""")
+    __doc__ = _("""Some tabs have an errors""")
 
 
 class WrongTabError(ValidationError):

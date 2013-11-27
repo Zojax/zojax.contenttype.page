@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
     var NO_TOGGLE = false;
+    if ($('.row').length == 1) {
+        $("#form-widgets-tabs-buttons-remove").hide();
+    }
     // Sort
     $(".z-form-field .multi-widget").children().each(function(index) {
         if ($(this).attr('id') == 'form-widgets-tabs-'+index+'-row') {
@@ -52,4 +55,12 @@ $(document).ready(function() {
     }
 
     $(".z-form-field .multi-widget .row > div.label").click(toggleItem);
+
+    $("#form-widgets-tabs-buttons-remove").click(function(){
+        if ($('.form-widgets-tabs input[type=checkbox]').length == $('.form-widgets-tabs input[type=checkbox]:checked').length) {
+            $('.form-widgets-tabs').addClass('error');
+            $('label[for=form-widgets-tabs]').after('<div class="error">You can\'t remove all tabs</div>');
+            return false;
+        }
+    });
 });

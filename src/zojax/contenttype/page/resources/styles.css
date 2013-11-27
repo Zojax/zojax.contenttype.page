@@ -16,6 +16,7 @@
     display: block;
     position: relative;
     margin: 0px;
+    float: inherit !important;
 
 }
 .tab-content {

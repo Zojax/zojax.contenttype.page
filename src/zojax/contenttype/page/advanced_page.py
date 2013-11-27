@@ -53,10 +53,8 @@ class AdvancedPage(Page):
             return
         for k, v in enumerate(value):
             ov = old[k]
-            if v.title:
-                ov.title = v.title
-            if v.text:
-                ov.text = v.text
+            ov.title = getattr(v, 'title', '')
+            ov.text = getattr(v, 'text', '')
             ov.position = v.position
 
         # NOTE: sort by position

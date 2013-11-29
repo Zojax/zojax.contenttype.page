@@ -19,11 +19,6 @@
     display: table;
     padding-left: 10px;
 }
-.aero #portal-column-content {
-    padding-left: 175px;
-    float: none !important;
-    width: 582px !important;
-}
 .nav-tabs > li {
     display: block;
     position: relative;

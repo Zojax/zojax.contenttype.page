@@ -84,6 +84,20 @@ class TabSchema(schema.Object):
 class IAdvancedPage(IPage):
     text = interface.Attribute("Object's Text")
 
+    description = interface.Attribute("Object's description")
+
+    tabs_header = schema.TextLine(
+        title=_(u'Tabs Header'),
+        description=_(u'document title.'),
+        default=u'',
+        missing_value=u'',
+        required=True)
+
+    copy = RichText(
+        title=_(u'Copy'),
+        description=_(u'Blog post body text.'),
+        required=False)
+
     tabs = TabsField(
         title=_(u"Tabs"),
         value_type=TabSchema(

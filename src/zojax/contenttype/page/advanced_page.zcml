@@ -109,17 +109,17 @@
   <!-- styles -->
   <zojax:resourceinclude
      name="zojax-page.css"
-     library="advanced-page-js" type="stylesheet" file="resources/styles.css" filetype="zrt" />
+     library="advanced-page" type="stylesheet" file="resources/styles.css" filetype="zrt" />
 
   <zojax:resourceinclude
      name="tabs_dragdrop.js"
-     library="advanced-page-js" type="javascript"
+     library="advanced-page" type="javascript"
      require="jquery jquery-plugins"
      file="resources/dragdrop.js"/>
 
   <zojax:resourceinclude
      name="advanced_page_tabs.js"
-     library="advanced-page-js" type="javascript"
+     library="advanced-page" type="javascript"
      require="jquery jquery-plugins"
      file="resources/tabs.js"/>
 

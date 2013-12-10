@@ -5,34 +5,39 @@ $(document).ready(function() {
         $("#form-widgets-tabs-buttons-remove").hide();
     }
     // Sort
-    $(".z-form-field .multi-widget").children().each(function(index) {
-        if ($(this).attr('id') == 'form-widgets-tabs-'+index+'-row') {
-            $('#form-widgets-tabs-'+index+'-widgets-position').val(index);
+    var sortItems;
+    (sortItems =  function () {
+        $(".form-widgets-tabs .multi-widget input.text-widget").each(function(index) {
+                $(this).val(index);
+            });
+    })();
+
+    $( '.form-widgets-tabs .multi-widget').sortable({
+        axis: "y",
+        update: function(event, ui) {
+            sortItems();
+            var NO_TOGGLE = false;
+        },
+        start : function(event, ui){
+            NO_TOGGLE = true;
+            if (typeof(tinyMCE) != 'undefined'){
+                tinyMCE.execCommand('mceRemoveControl', false, ui.item.find('textarea').attr('id'));
+            }
+        },
+        stop : function(event, ui){
+            if (typeof(tinyMCE) != 'undefined'){
+                tinyMCE.execCommand('mceAddControl', false, ui.item.find('textarea').attr('id'));
+                ui.item.find('a.mceResize').mousedown(function (){
+                    return false;
+                });
+            }
         }
     });
 
-    $( ".z-form-field .multi-widget" ).sortable({
-        connectWith: ".z-form-field .multi-widget",
-        axis: "y",
-        update: function(event, ui) {
-
-            parent = ui.item.parent();
-            parent.children().each(function(index) {
-                var Id = $(this).attr('id');
-                Id = Id.replace('form-widgets-tabs-', '');
-                Id = Id.replace('-row', '');
-                $('#form-widgets-tabs-'+Id+'-widgets-position').val(index);
-            });
-        },
-        start : function(){
-            NO_TOGGLE = true;
-        }
-    }).disableSelection();
-
     // Expand-collapse
-    $(".z-form-field .multi-widget .row > div.widget").hide();
+    $(".form-widgets-tabs .multi-widget .row > div.widget").hide();
 
-    $(".z-form-field .multi-widget .row > div.label").addClass("closed");
+    $(".form-widgets-tabs .multi-widget .row > div.label").addClass("closed");
 
     var toggleItem = function() {
         if (NO_TOGGLE) {
@@ -40,21 +45,24 @@ $(document).ready(function() {
             return false;
         }
         var $glideElement = $(this);
-	    if ($glideElement.siblings('.widget').is(":hidden")) {
+	    if ($glideElement.next().is(":hidden")) {
 		    // show it
 		    $glideElement.removeClass("closed");
 		    $glideElement.addClass("open");
-		    $glideElement.siblings('.widget').slideDown();
+		    $glideElement.next().slideDown();
+            $("a.mceResize").mousedown(function (){
+                return false;
+            });
 	    } else {
 		    // hidde it
 		    $glideElement.removeClass("open");
 		    $glideElement.addClass("closed");
-		    $glideElement.siblings('.widget').slideUp();
+		    $glideElement.next().slideUp();
 	    }
 	    return false;
     }
 
-    $(".z-form-field .multi-widget .row > div.label").click(toggleItem);
+    $(".form-widgets-tabs .multi-widget .row > div.label").click(toggleItem);
 
     $("#form-widgets-tabs-buttons-remove").click(function(){
         if ($('.form-widgets-tabs input[type=checkbox]').length == $('.form-widgets-tabs input[type=checkbox]:checked').length) {
@@ -63,4 +71,6 @@ $(document).ready(function() {
             return false;
         }
     });
+
+    $('div.widget > script').remove()
 });

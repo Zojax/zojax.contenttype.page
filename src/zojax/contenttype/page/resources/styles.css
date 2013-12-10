@@ -10,21 +10,19 @@
 }
 .bullet {
     background-color: #F7F7F7;
-
 }
 .tabs-pad {
     float: left;
     padding-right: 20px;
-    width: 200px;
+    width: 175px;
     display: table;
     padding-left: 10px;
 }
-.nav-tabs > li {
+.page-nav-tabs > li {
     display: block;
     position: relative;
-    margin: 0px;
+    margin: 0;
     float: inherit !important;
-
 }
 .tab-content {
     margin: -6px 0 0;
@@ -37,35 +35,41 @@
 .tab-content > div {
     display: none;
 }
-.nav-tabs > li > a {
-    display: block;
+.page-nav-tabs > li > a {
     font-family: 'Roboto',sans-serif;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 0;
-    padding: 9px 30px 10px 0;
-    text-align: left;
+    font-size: 13px;
+    padding: 4px 30px 3px 8px;
     white-space: pre-line;
+    color: #2D2C2C;
 }
-.nav-tabs > li > a:hover, .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .nav-tabs > li > a:focus {
+.page-nav-tabs > li > a:active {
+    color: #FFFFFF !important;
+}
+.page-nav-tabs > li > a:hover,
+.page-nav-tabs > li.active > a,
+.page-nav-tabs > li.active > a:hover,
+.page-nav-tabs > li.active > a:focus,
+.page-nav-tabs > li > a:focus {
     background: none repeat scroll 0 0 #bd2418 !important;
     border-right: medium none !important;
-    box-shadow: none;
     color: #FFFFFF;
     margin: 0;
-    padding: 9px 30px 10px 20px;
     border-radius: 4px 0 0 4px;
     border-image: none;
     cursor: default;
 }
-.nav-tabs > li:hover:after, .nav-tabs > li.active:after, .nav-tabs > li.active:hover:after, .nav-tabs > li.active:focus:after, .nav-tabs > li:focus {
+.page-nav-tabs > li:hover:after,
+.page-nav-tabs > li.active:after,
+.page-nav-tabs > li.active:hover:after,
+.page-nav-tabs > li.active:focus:after,
+.page-nav-tabs > li:focus {
     border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #bd2418 !important;
     border-style: solid;
-    border-width: 20px 0 20px 20px;
+    border-width: 13px 0 13px 13px;
     content: "";
     height: 0;
     position: absolute;
-    right: -20px;
+    right: -13px;
     top: 0;
     width: 0;
 }

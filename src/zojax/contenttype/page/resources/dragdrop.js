@@ -7,8 +7,13 @@ $(document).ready(function() {
     // Sort
     var sortItems;
     (sortItems =  function () {
-        $(".form-widgets-tabs .multi-widget input.text-widget").each(function(index) {
-                $(this).val(index);
+        $(".form-widgets-tabs .multi-widget div.row").each(function(index) {
+                $(this).find('input.textline-field').each(function() {
+                    if ($(this).attr('name').indexOf('position') > 0) {
+                        $(this).val(index);
+                    }
+
+                });
             });
     })();
 

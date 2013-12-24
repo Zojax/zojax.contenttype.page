@@ -97,10 +97,6 @@ class AdvancedPageEditForm(EditContentWizard):
         include('advanced-page')
         super(AdvancedPageEditForm, self).__init__(*args, **kw)
 
-    @Lazy
-    def fields(self):
-        return Fields(IItem).omit('description')
-
 
 class AdvancedPageAddForm(ContentStep):
     interface.implements(ISaveable)

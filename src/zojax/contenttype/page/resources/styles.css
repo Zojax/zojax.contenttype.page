@@ -41,6 +41,7 @@
     padding: 4px 30px 3px 8px;
     white-space: pre-line;
     color: #2D2C2C;
+    display: block;
 }
 .page-nav-tabs > li > a:active {
     color: #FFFFFF !important;
